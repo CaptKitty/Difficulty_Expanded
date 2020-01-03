@@ -1,0 +1,26 @@
+difficulty_expanded_local_level = {
+	#min_local_autonomy = 50
+	supply_limit_modifier = -0.25
+	#discipline = -0.001
+}
+difficulty_expanded_country_level = {
+	land_forcelimit_modifier = -0.5
+	min_autonomy = 50
+	advisor_cost = 0.50
+	global_unrest = 5
+}
+difficulty_expanded_corruption_1 = {
+	yearly_corruption = 0.25
+}
+difficulty_expanded_corruption_2 = {
+	yearly_corruption = 0.20
+}
+difficulty_expanded_corruption_3 = {
+	yearly_corruption = 0.15
+}
+difficulty_expanded_corruption_4 = {
+	yearly_corruption = 0.10
+}
+difficulty_expanded_corruption_5 = {
+	yearly_corruption = 0.05
+}

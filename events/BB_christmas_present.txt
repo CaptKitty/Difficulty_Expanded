@@ -1,0 +1,133 @@
+namespace = BB_christmas_present
+
+country_event = {
+	id = BB_christmas_present.1
+	title = "BB_christmas_present.1.t"
+	desc = "BB_christmas_present.1.d"
+	picture = MILITARY_CAMP_eventPicture
+
+	trigger = {
+		NOT = { exists = E25 }
+		NOT = { legitimacy = 75 }
+		was_player = yes
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_owner_culture = no
+					unrest = 5
+				}
+				save_event_target_as = BB_christmas_present_flag
+			}
+			every_owned_province = {
+				limit = {
+					culture = event_target:BB_christmas_present_flag
+				}
+				add_core = E25
+				cede_province = E25
+			}
+			E25 = {
+				change_government = monarchy
+				define_ruler = {}
+				define_heir = {}
+				adopt_reform_progress = ROOT
+				every_owned_province = {
+					infantry = E25
+					if = {
+						limit = {
+							development = 5
+						}
+						cavalry = PREV
+					}
+					if = {
+						limit = {
+							development = 10
+						}
+						artillery = PREVPREV
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "BB_christmas_present.1.a"	#This means war.
+		ai_chance = {
+			factor = 1
+		}
+		E25 = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	option = {
+		name = "BB_christmas_present.1.b"	#Let bygones be bygones.
+	}
+}
+
+country_event = {
+	id = BB_christmas_present.2
+	title = "BB_christmas_present.2.t"
+	desc = "BB_christmas_present.2.d"
+	picture = MILITARY_CAMP_eventPicture
+
+	trigger = {
+		NOT = { exists = E25 }
+		legitimacy = 101
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		#hidden_effect = {
+			E25 = {
+				ROOT = {
+					every_owned_province = {
+						limit = {
+							culture = francien
+						}
+						cede_province = E25
+						add_core = E25
+					}
+				}
+				define_ruler = {
+					name = "Jodha"
+					dynasty = "Rathore"
+					culture = rajput
+					religion = hinduism
+					claim = 100
+					DIP = 2
+					MIL = 4
+					ADM = 4
+				}
+				adopt_reform_progress = ROOT
+			}
+		#}
+	}
+	
+	option = {
+		name = "BB_christmas_present.2.a"	#This means war.
+		ai_chance = {
+			factor = 1
+		}
+		E25 = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_independence_war
+			}
+		}
+	}
+	option = {
+		name = "BB_christmas_present.2.b"	#Let bygones be bygones.
+	}
+}
