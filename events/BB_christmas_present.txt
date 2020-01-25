@@ -7,9 +7,7 @@ country_event = {
 	picture = MILITARY_CAMP_eventPicture
 
 	trigger = {
-		NOT = { exists = E25 }
-		NOT = { legitimacy = 75 }
-		was_player = yes
+		legitimacy = 101
 	}
 	
 	mean_time_to_happen = {
